@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="presidentsApp">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<script src="//code.angularjs.org/1.3.9/angular.min.js"></script>
+	<script src="//code.angularjs.org/1.3.9/angular-route.min.js"></script>
+	<script src="konami.js"></script>
+	<script src="helpers.js"></script>
+	<script src="app.js"></script>
+	<script src="services.js"></script>
+
+</head>
+<body ng-controller="mainController">
+
+	<div class="container">
+
+		<h1>Test Your Knowledge of the U.S. Presidents</h1>
+
+		<h3>Your Score: <span id="user-score">{{userScore}}</span>/{{presidents.length}}</h3>
+
+		<img ng-src="{{curImage}}">
+
+		<h4>Who was the <strong>{{curNum}}</strong><span><strong>{{properGrammer}}</strong></span> U.S. president, who served from <strong>{{curYears}}</strong>:</h4>
+
+		<form ng-submit="checkPresident(presNames)">
+			<div class="form-group">
+				<input id="input" name="input" class="form-control" ng-model="userInput" autofocus>
+			</div>
+			<button type="submit" class="btn btn-primary btn-block">Submit</button>
+		</form>
+
+		<button class="btn btn-success btn-block" ng-if="cheatActivated" ng-click="cheat(presNames)">Cheat</button>
+
+		<div class="row presidents-left">
+			<h4>Presidents Left:</h4>
+			<ul>
+				<li class="president-name" ng-repeat="president in presNames track by $index">
+					{{president}}
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
