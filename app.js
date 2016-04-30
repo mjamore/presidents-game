@@ -33,8 +33,7 @@ presidentsApp.controller('mainController', ['$scope', '$timeout', 'presidentsSer
 	$scope.curYears = $scope.presidents[$scope.curNum - 1].years;
 	$scope.curImage = $scope.presidents[$scope.curNum - 1].image;
 	$scope.userScore = 0;
-	$scope.curDigit = getDigit($scope.curNum);
-	$scope.properGrammer = getProperGrammer($scope.curNum, $scope.curDigit);
+	$scope.ordinalIndicator = getOrdinalIndicator($scope.curNum);
 	$scope.cheatActivated = true;
 
 	console.log($scope.curFname + ' ' + $scope.curLname);
@@ -70,8 +69,7 @@ presidentsApp.controller('mainController', ['$scope', '$timeout', 'presidentsSer
 			$scope.curLname = $scope.presidents[$scope.curIndex].lname;
 			$scope.curYears = $scope.presidents[$scope.curIndex].years;
 			$scope.curImage = $scope.presidents[$scope.curIndex].image;
-			$scope.curDigit = getDigit($scope.curNum);
-			$scope.properGrammer = getProperGrammer($scope.curNum, $scope.curDigit);
+			$scope.ordinalIndicator = getOrdinalIndicator($scope.curNum);
 			$scope.userInput = '';
 
 			console.log($scope.curFname + ' ' + $scope.curLname);

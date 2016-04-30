@@ -19,35 +19,24 @@ function shuffle(array) {
 	return array;
 }
 
-
-var getDigit = function(curNum) {
-	var string = curNum.toString();
-	var digit = string.substr(string.length - 1);
-	return digit;
-}
-
-var getProperGrammer = function(curNum, curDigit) {
+var getOrdinalIndicator = function(number) {	
 	var string = '';
 
-	if( curNum == 11 || curNum == 12 || curNum == 13 )
-	{
+	if(number == 11 || number == 12 || number == 13) {
 		string = 'th';
-	}
-	else if( curDigit == 1 )
-	{
-		string = 'st';
-	}
-	else if( curDigit == 2 )
-	{
-		string = 'nd';
-	}
-	else if( curDigit == 3 )
-	{
-		string = 'rd';
-	}
-	else if( curDigit == 4 || curDigit == 5 || curDigit == 6 || curDigit == 7 || curDigit == 8 || curDigit == 9 || curDigit == 0 )
-	{
-		string = 'th';
+	} else {
+		var str = number.toString(),
+			digit = str.substr(str.length -1);
+
+		if( digit == '1' ) {
+			string = 'st';
+		} else if( digit == '2' ) {
+			string = 'nd';
+		} else if( digit == '3' ) {
+			string = 'rd';
+		} else {
+			string = 'th';
+		}
 	}
 
 	return string;
